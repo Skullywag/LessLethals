@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DamageDef Name="LocalInjuryBase" Abstract="True">
+    <workerClass>DamageWorker_AddGlobal</workerClass>
+  </DamageDef>
+  
+  <DamageDef ParentName="LocalInjuryBase">
+    <defName>Electrocuted</defName>
+    <label>electrocuted</label>
+    <harmsHealth>false</harmsHealth>
+    <hasForcefulImpact>False</hasForcefulImpact>
+    <canInterruptJobs>true</canInterruptJobs>
+    <makesBlood>false</makesBlood>
+    <externalViolence>false</externalViolence>
+    <deathMessage>{0} died from nerve damage.</deathMessage>
+    <hediff>Electrocuted</hediff>
+    <hediffSkin>Electrocuted</hediffSkin>
+    <hediffSolid>Electrocuted</hediffSolid>
+    <harmAllLayersUntilOutside>false</harmAllLayersUntilOutside>
+    <impactSoundType>Electric</impactSoundType>
+  </DamageDef>
+
+</Defs>

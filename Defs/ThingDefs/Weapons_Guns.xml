@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef Name="BaseGun" Abstract="True">
+    <category>Item</category>
+    <thingClass>ThingWithComps</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>10</pathCost>
+    <useHitPoints>True</useHitPoints>
+    <selectable>True</selectable>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>1</DeteriorationRate>
+      <SellPriceFactor>0.5</SellPriceFactor>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <techLevel>Midworld</techLevel>
+    <thingCategories>
+      <li>WeaponsRanged</li>
+    </thingCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompForbiddable</compClass>
+      </li>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li>
+        <compClass>CompArt</compClass>
+        <nameMaker>NamerGun</nameMaker>
+        <descriptionMaker>ArtWeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <smeltProducts>
+      <Steel>20</Steel>
+    </smeltProducts>
+  </ThingDef>
+
+
+  <ThingDef Name="BaseHumanGun" ParentName="BaseGun" Abstract="True">
+    <weaponTags>
+      <li>Gun</li>
+    </weaponTags>
+  </ThingDef>
+
+
+  <ThingDef Name="StunGunBullet" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Bullet</thingClass>
+    <label>bullet</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef Name="BeanBagBullet" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Bullet</thingClass>
+    <label>bullet</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+  </ThingDef>
+
+  <!-- ============================================================== -->
+
+	<ThingDef ParentName="StunGunBullet">
+		<defName>Bullet_StunGun</defName>
+		<label>StunGun bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Spark</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+		<projectile>
+			<flyOverhead>false</flyOverhead>
+      <damageDef>Electrocuted</damageDef>
+			<DamageAmountBase>1</DamageAmountBase>
+			<Speed>20</Speed>
+		</projectile>
+	</ThingDef>
+
+
+	<ThingDef ParentName="BaseHumanGun">
+		<defName>Gun_StunGun</defName>
+		<label>StunGun</label>
+		<description>A typical stun gun, used to incapacitate.</description>
+    <graphicData>
+      <texPath>Things/Weapons/StunGun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+		<soundInteract>InteractPistol</soundInteract>
+		<statBases>
+      <MarketValue>250</MarketValue>
+      <AccuracyTouch>0.95</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.60</AccuracyMedium>
+      <AccuracyLong>0.50</AccuracyLong>
+      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+    </statBases>
+		<verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass> 
+  			<projectileDef>Bullet_StunGun</projectileDef>
+        <hasStandardCommand>true</hasStandardCommand>
+  			<warmupTicks>600</warmupTicks>
+  			<range>18</range>
+  			<soundCast>StunGun</soundCast>
+      </li>
+		</verbs>
+	</ThingDef>
+
+  <!-- ============================================================== -->
+
+  <ThingDef ParentName="BeanBagBullet">
+    <defName>Bullet_BeanBagShotty</defName>
+    <label>BeanBag</label>
+    <graphicData>
+      <texPath>Things/Weapons/BeanBag</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Stun</damageDef>
+      <DamageAmountBase>10</DamageAmountBase>
+      <Speed>30</Speed>
+    </projectile>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BaseHumanGun">
+    <defName>Gun_BeanBagGun</defName>
+    <label>BeanBag ShotGun</label>
+    <description>A shotgun modified to fire beanbags, used to keep an enemy downed.</description>
+    <graphicData>
+      <texPath>Things/Weapons/BeanBagShotty</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <statBases>
+      <MarketValue>450</MarketValue>
+      <AccuracyTouch>0.95</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.70</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
+      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <projectileDef>Bullet_BeanBagShotty</projectileDef>
+        <hasStandardCommand>true</hasStandardCommand>
+        <warmupTicks>100</warmupTicks>
+        <range>18</range>
+        <soundCast>ShotBeanBagShotty</soundCast>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+</ThingDefs>

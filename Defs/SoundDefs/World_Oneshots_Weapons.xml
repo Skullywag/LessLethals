@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DefPackage-SoundDef>
+
+  <SoundDef>
+    <defName>StunGun</defName>  
+    <eventNames />  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Weapon/BowA</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>56.09319</min>        
+          <max>53.58423</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.653763</min>        
+          <max>1.965591</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>ShotBeanBagShotty</defName>
+    <eventNames />
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Weapon/Shotgun/shot</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>
+          <min>94.70588</min>
+          <max>94.70588</max>
+        </volumeRange>
+        <distRange>
+          <min>39.11765</min>
+          <max>70</max>
+        </distRange>
+      </li>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Weapon/Shotgun/Rack</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>
+          <min>10.58823</min>
+          <max>10.58823</max>
+        </volumeRange>
+        <pitchRange>
+          <min>0.3311765</min>
+          <max>0.637647</max>
+        </pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+</DefPackage-SoundDef>

@@ -1,0 +1,10 @@
+C:\Users\mjsku_000\Desktop\RimWorld857Win\Mods\LessLethals\Source\LessLethals\bin\Debug\LessLethals.dll
+C:\Users\mjsku_000\Desktop\RimWorld857Win\Mods\LessLethals\Source\LessLethals\bin\Debug\LessLethals.pdb
+C:\Users\mjsku_000\Desktop\RimWorld857Win\Mods\LessLethals\Source\LessLethals\obj\Debug\LessLethals.csprojResolveAssemblyReference.cache
+C:\Users\mjsku_000\Desktop\RimWorld857Win\Mods\LessLethals\Source\LessLethals\obj\Debug\LessLethals.dll
+C:\Users\mjsku_000\Desktop\RimWorld857Win\Mods\LessLethals\Source\LessLethals\obj\Debug\LessLethals.pdb
+C:\Users\mjsku_000\Desktop\RimWorldAlpha12Win\RimWorld906Win\Mods\LessLethals\Source\LessLethals\bin\Debug\LessLethals.dll
+C:\Users\mjsku_000\Desktop\RimWorldAlpha12Win\RimWorld906Win\Mods\LessLethals\Source\LessLethals\bin\Debug\LessLethals.pdb
+C:\Users\mjsku_000\Desktop\RimWorldAlpha12Win\RimWorld906Win\Mods\LessLethals\Source\LessLethals\obj\Debug\LessLethals.csprojResolveAssemblyReference.cache
+C:\Users\mjsku_000\Desktop\RimWorldAlpha12Win\RimWorld906Win\Mods\LessLethals\Source\LessLethals\obj\Debug\LessLethals.dll
+C:\Users\mjsku_000\Desktop\RimWorldAlpha12Win\RimWorld906Win\Mods\LessLethals\Source\LessLethals\obj\Debug\LessLethals.pdb
