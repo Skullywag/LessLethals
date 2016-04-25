@@ -2,7 +2,7 @@
 <Defs>
 
   <HediffDef Name="DiseaseBase" Abstract="True">
-    <hediffClass>Hediff_Staged</hediffClass>
+    <hediffClass>HediffWithComps</hediffClass>
     <defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
   </HediffDef>
 
@@ -12,7 +12,10 @@
     <comps>
       <li>
         <compClass>HediffComp_Disappears</compClass>
-        <disappearsAfterTicks>1000</disappearsAfterTicks>
+        <disappearsAfterTicks>
+          <min>1000</min>
+          <max>1000</max>
+        </disappearsAfterTicks>
       </li>
     </comps>
     <stages>

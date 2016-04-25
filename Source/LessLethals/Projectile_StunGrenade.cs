@@ -7,11 +7,13 @@ namespace LessLethals
     public class Projectile_StunGrenade : Projectile
     {
         private int ticksToDetonation;
+
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.LookValue<int>(ref this.ticksToDetonation, "ticksToDetonation", 0, false);
         }
+
         public override void Tick()
         {
             base.Tick();
@@ -24,6 +26,7 @@ namespace LessLethals
                 }
             }
         }
+
         protected override void Impact(Thing hitThing)
         {
             if (this.def.projectile.explosionDelay == 0)
@@ -34,20 +37,13 @@ namespace LessLethals
             this.landed = true;
             this.ticksToDetonation = this.def.projectile.explosionDelay;
         }
+
         protected virtual void Explode()
         {
             this.Destroy(DestroyMode.Vanish);
-            BodyPartDamageInfo value = new BodyPartDamageInfo(null, new BodyPartDepth?(BodyPartDepth.Outside));
-            ExplosionInfo explosionInfo = default(ExplosionInfo);
-            explosionInfo.center = base.Position;
-            explosionInfo.radius = this.def.projectile.explosionRadius;
-            explosionInfo.dinfo = new DamageInfo(this.def.projectile.damageDef, 999, this.launcher, new BodyPartDamageInfo?(value), null);
-            explosionInfo.postExplosionSpawnThingDef = this.def.projectile.postExplosionSpawnThingDef;
-            explosionInfo.explosionSpawnChance = this.def.projectile.explosionSpawnChance;
-            explosionInfo.explosionSound = this.def.projectile.soundExplode;
-            explosionInfo.projectile = this.def;
+            ThingDef preExplosionSpawnThingDef = this.def.projectile.preExplosionSpawnThingDef;
+            GenExplosion.DoExplosion(base.Position, this.def.projectile.explosionRadius, this.def.projectile.damageDef, this.launcher, this.def.projectile.soundExplode, this.def, this.equipmentDef, this.def.projectile.postExplosionSpawnThingDef, this.def.projectile.explosionSpawnChance, false, preExplosionSpawnThingDef, this.def.projectile.explosionSpawnChance);
             MoteThrower.ThrowLightningGlow(base.Position.ToVector3Shifted(), 10F);
-            explosionInfo.DoExplosion();
         }
     }
 }
