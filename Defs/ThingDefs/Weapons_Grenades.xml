@@ -77,7 +77,7 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <soundInteract>InteractGrenade</soundInteract>
-    <techLevel>Midworld</techLevel>
+    <techLevel>Industrial</techLevel>
     <statBases>
       <MarketValue>250</MarketValue>
       <RangedWeapon_Cooldown>2.66</RangedWeapon_Cooldown>
@@ -92,16 +92,13 @@
         <hasStandardCommand>true</hasStandardCommand>
         <range>12.9</range>
         <forcedMissRadius>1.0</forcedMissRadius>
-        <warmupTicks>90</warmupTicks>
+        <warmupTime>1.5</warmupTime>
         <noiseRadius>4</noiseRadius>
         <ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
         <soundCast>ThrowGrenade</soundCast>
         <targetParams>
-  				<canTargetLocations>true</canTargetLocations>
-  				<canTargetPawns>true</canTargetPawns>
-  				<canTargetBuildings>true</canTargetBuildings>
-  				<worldObjectTargetsMustBeAutoAttackable>true</worldObjectTargetsMustBeAutoAttackable>
-  			</targetParams>
+          <canTargetLocations>true</canTargetLocations>
+  	   </targetParams>
         <projectileDef>Proj_GrenadeStun</projectileDef>
       </li>
     </verbs>
