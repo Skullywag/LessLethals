@@ -21,7 +21,7 @@
     <altitudeLayer>Item</altitudeLayer>
     <alwaysHaulable>True</alwaysHaulable>
     <tickerType>Never</tickerType>
-    <techLevel>Midworld</techLevel>
+    <techLevel>Industrial</techLevel>
     <thingCategories>
       <li>WeaponsRanged</li>
     </thingCategories>
@@ -135,14 +135,14 @@
     </statBases>
     <costList>
       <Steel>60</Steel>
-      <Components>8</Components>
+      <Component>8</Component>
     </costList>
 		<verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass> 
   			<projectileDef>Bullet_StunGun</projectileDef>
         <hasStandardCommand>true</hasStandardCommand>
-  			<warmupTicks>600</warmupTicks>
+  			<warmupTime>10</warmupTime>
   			<range>18</range>
   			<soundCast>StunGun</soundCast>
       </li>
@@ -186,14 +186,14 @@
     </statBases>
     <costList>
       <Steel>80</Steel>
-      <Components>6</Components>
+      <Component>6</Component>
     </costList>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <projectileDef>Bullet_BeanBagShotty</projectileDef>
         <hasStandardCommand>true</hasStandardCommand>
-        <warmupTicks>100</warmupTicks>
+        <warmupTime>1.67</warmupTime>
         <range>18</range>
         <soundCast>ShotBeanBagShotty</soundCast>
       </li>
