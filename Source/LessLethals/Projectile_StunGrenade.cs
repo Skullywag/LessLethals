@@ -6,44 +6,61 @@ namespace LessLethals
 {
     public class Projectile_StunGrenade : Projectile
     {
-        private int ticksToDetonation;
+        private int ticksToDetonation = 0;
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<int>(ref this.ticksToDetonation, "ticksToDetonation", 0, false);
+
+            Scribe_Values.LookValue(ref ticksToDetonation, "ticksToDetonation");
         }
+
 
         public override void Tick()
         {
             base.Tick();
-            if (this.ticksToDetonation > 0)
+
+            if (ticksToDetonation > 0)
             {
-                this.ticksToDetonation--;
-                if (this.ticksToDetonation <= 0)
-                {
-                    this.Explode();
-                }
+                ticksToDetonation--;
+
+                if (ticksToDetonation <= 0)
+                    Explode();
             }
         }
 
         protected override void Impact(Thing hitThing)
         {
-            if (this.def.projectile.explosionDelay == 0)
+            if (def.projectile.explosionDelay == 0)
             {
-                this.Explode();
+                Explode();
                 return;
             }
-            this.landed = true;
-            this.ticksToDetonation = this.def.projectile.explosionDelay;
+            else
+            {
+                landed = true;
+                ticksToDetonation = def.projectile.explosionDelay;
+                GenExplosion.NotifyNearbyPawnsOfDangerousExplosive(this, def.projectile.damageDef, launcher.Faction);
+            }
         }
 
         protected virtual void Explode()
         {
-            this.Destroy(DestroyMode.Vanish);
-            ThingDef preExplosionSpawnThingDef = this.def.projectile.preExplosionSpawnThingDef;
-            GenExplosion.DoExplosion(base.Position, this.def.projectile.explosionRadius, this.def.projectile.damageDef, this.launcher, this.def.projectile.soundExplode, this.def, this.equipmentDef, this.def.projectile.postExplosionSpawnThingDef, this.def.projectile.explosionSpawnChance, false, preExplosionSpawnThingDef, this.def.projectile.explosionSpawnChance);
-            MoteThrower.ThrowLightningGlow(base.Position.ToVector3Shifted(), 10F);
+            var map = Map; // before Destroy()!
+
+            Destroy();
+
+            GenExplosion.DoExplosion(Position, map, def.projectile.explosionRadius, def.projectile.damageDef, launcher,
+                explosionSound: def.projectile.soundExplode,
+                projectile: def,
+                source: equipmentDef,
+                postExplosionSpawnThingDef: def.projectile.postExplosionSpawnThingDef,
+                postExplosionSpawnChance: def.projectile.explosionSpawnChance,
+                applyDamageToExplosionCellsNeighbors: false,
+                preExplosionSpawnThingDef: def.projectile.preExplosionSpawnThingDef,
+                preExplosionSpawnChance: def.projectile.explosionSpawnChance);
+            //Adds a bright flash to the stun grenade explosion
+            MoteMaker.ThrowLightningGlow(base.Position.ToVector3Shifted(), map, 10F);
         }
     }
 }

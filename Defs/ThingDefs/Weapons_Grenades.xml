@@ -54,7 +54,7 @@
   <ThingDef ParentName="BaseGrenadeProjectile">
     <defName>Proj_GrenadeStun</defName>
     <label>Stun grenade</label>
-    <thingClass>Projectile_Explosive</thingClass>
+    <thingClass>LessLethals.Projectile_StunGrenade</thingClass>
     <graphicData>
       <texPath>Things/Weapons/StunGrenade</texPath>
       <graphicClass>Graphic_Single</graphicClass>
