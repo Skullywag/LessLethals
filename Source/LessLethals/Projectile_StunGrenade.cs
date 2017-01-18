@@ -1,66 +1,34 @@
-﻿using System;
-using Verse;
+﻿using Verse;
 using RimWorld;
+using UnityEngine;
 
 namespace LessLethals
 {
-    public class Projectile_StunGrenade : Projectile
+    /// <summary>
+    /// Overrides and Executes Explode() from Projectile_Explosive Class adding a custom Mote.
+    /// </summary>
+
+    //  Projectile_Explosive Source: "\RIMWORLD_FOLDER\Source\Verse\Thing\Projectile_Explosive.cs"
+    public class Projectile_StunGrenade : Projectile_Explosive
     {
-        private int ticksToDetonation = 0;
+        /// <summary>
+        /// Overrides Projectile_Explosive.Explode() adding a custom Mote.
+        /// </summary>
 
-        public override void ExposeData()
+        protected override void Explode()
         {
-            base.ExposeData();
+            // Store the custom XML def AS one with the custom <scale> tag
+            LL_ThingDef mote_stunGrenade = LL_ThingDefOf.Mote_StunGrenade as LL_ThingDef;
 
-            Scribe_Values.LookValue(ref ticksToDetonation, "ticksToDetonation");
-        }
+            // Save map and (Unity) position before base method destroys the Projectile.
+            var map = Map;
+            Vector3 position = ExactPosition;
 
+            // Execute DoExplosion and Destroy from base
+            base.Explode();
 
-        public override void Tick()
-        {
-            base.Tick();
-
-            if (ticksToDetonation > 0)
-            {
-                ticksToDetonation--;
-
-                if (ticksToDetonation <= 0)
-                    Explode();
-            }
-        }
-
-        protected override void Impact(Thing hitThing)
-        {
-            if (def.projectile.explosionDelay == 0)
-            {
-                Explode();
-                return;
-            }
-            else
-            {
-                landed = true;
-                ticksToDetonation = def.projectile.explosionDelay;
-                GenExplosion.NotifyNearbyPawnsOfDangerousExplosive(this, def.projectile.damageDef, launcher.Faction);
-            }
-        }
-
-        protected virtual void Explode()
-        {
-            var map = Map; // before Destroy()!
-
-            Destroy();
-
-            GenExplosion.DoExplosion(Position, map, def.projectile.explosionRadius, def.projectile.damageDef, launcher,
-                explosionSound: def.projectile.soundExplode,
-                projectile: def,
-                source: equipmentDef,
-                postExplosionSpawnThingDef: def.projectile.postExplosionSpawnThingDef,
-                postExplosionSpawnChance: def.projectile.explosionSpawnChance,
-                applyDamageToExplosionCellsNeighbors: false,
-                preExplosionSpawnThingDef: def.projectile.preExplosionSpawnThingDef,
-                preExplosionSpawnChance: def.projectile.explosionSpawnChance);
-            //Adds a bright flash to the stun grenade explosion
-            MoteMaker.ThrowLightningGlow(base.Position.ToVector3Shifted(), map, 10F);
+            // Generate the custom Mote effect
+            MoteMaker.MakeStaticMote(position, map, mote_stunGrenade, mote_stunGrenade.scale);
         }
     }
 }

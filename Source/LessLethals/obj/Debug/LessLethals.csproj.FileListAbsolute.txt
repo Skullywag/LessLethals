@@ -18,3 +18,8 @@ D:\Rimworld Modding\LessLethals-master\Source\LessLethals\bin\Debug\LessLethals.
 D:\Rimworld Modding\LessLethals-master\Source\LessLethals\obj\Debug\LessLethals.csprojResolveAssemblyReference.cache
 D:\Rimworld Modding\LessLethals-master\Source\LessLethals\obj\Debug\LessLethals.dll
 D:\Rimworld Modding\LessLethals-master\Source\LessLethals\obj\Debug\LessLethals.pdb
+D:\Rimworld Modding\Github\LessLethals\Source\LessLethals\bin\Debug\LessLethals.dll
+D:\Rimworld Modding\Github\LessLethals\Source\LessLethals\bin\Debug\LessLethals.pdb
+D:\Rimworld Modding\Github\LessLethals\Source\LessLethals\obj\Debug\LessLethals.csprojResolveAssemblyReference.cache
+D:\Rimworld Modding\Github\LessLethals\Source\LessLethals\obj\Debug\LessLethals.dll
+D:\Rimworld Modding\Github\LessLethals\Source\LessLethals\obj\Debug\LessLethals.pdb
