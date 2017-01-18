@@ -22,7 +22,7 @@
     <altitudeLayer>Item</altitudeLayer>
     <alwaysHaulable>True</alwaysHaulable>
     <tickerType>Never</tickerType>
-    <techLevel>Midworld</techLevel>
+    <techLevel>Industrial</techLevel>
     <weaponTags>
       <li>Melee</li>
     </weaponTags>

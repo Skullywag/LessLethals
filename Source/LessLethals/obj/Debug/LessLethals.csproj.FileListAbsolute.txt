@@ -13,3 +13,13 @@ C:\Users\mjsku\Desktop\RimWorldAlpha13Win\RimWorld1135Win\Mods\LessLethals\Sourc
 C:\Users\mjsku\Desktop\RimWorldAlpha13Win\RimWorld1135Win\Mods\LessLethals\Source\LessLethals\obj\Debug\LessLethals.pdb
 C:\Users\mjsku\Desktop\RimWorldAlpha13Win\RimWorld1135Win\Mods\LessLethals\Source\LessLethals\bin\Debug\LessLethals.dll
 C:\Users\mjsku\Desktop\RimWorldAlpha13Win\RimWorld1135Win\Mods\LessLethals\Source\LessLethals\bin\Debug\LessLethals.pdb
+D:\Rimworld Modding\LessLethals-master\Source\LessLethals\bin\Debug\LessLethals.dll
+D:\Rimworld Modding\LessLethals-master\Source\LessLethals\bin\Debug\LessLethals.pdb
+D:\Rimworld Modding\LessLethals-master\Source\LessLethals\obj\Debug\LessLethals.csprojResolveAssemblyReference.cache
+D:\Rimworld Modding\LessLethals-master\Source\LessLethals\obj\Debug\LessLethals.dll
+D:\Rimworld Modding\LessLethals-master\Source\LessLethals\obj\Debug\LessLethals.pdb
+D:\Rimworld Modding\Github\LessLethals\Source\LessLethals\bin\Debug\LessLethals.dll
+D:\Rimworld Modding\Github\LessLethals\Source\LessLethals\bin\Debug\LessLethals.pdb
+D:\Rimworld Modding\Github\LessLethals\Source\LessLethals\obj\Debug\LessLethals.csprojResolveAssemblyReference.cache
+D:\Rimworld Modding\Github\LessLethals\Source\LessLethals\obj\Debug\LessLethals.dll
+D:\Rimworld Modding\Github\LessLethals\Source\LessLethals\obj\Debug\LessLethals.pdb

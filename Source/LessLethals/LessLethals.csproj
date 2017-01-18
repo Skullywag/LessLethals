@@ -47,6 +47,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LL_ThingDef.cs" />
+    <Compile Include="LL_ThingDefOf.cs" />
     <Compile Include="Projectile_StunGrenade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,49 +1,34 @@
-﻿using System;
-using Verse;
+﻿using Verse;
 using RimWorld;
+using UnityEngine;
 
 namespace LessLethals
 {
-    public class Projectile_StunGrenade : Projectile
+    /// <summary>
+    /// Overrides and Executes Explode() from Projectile_Explosive Class adding a custom Mote.
+    /// </summary>
+
+    //  Projectile_Explosive Source: "\RIMWORLD_FOLDER\Source\Verse\Thing\Projectile_Explosive.cs"
+    public class Projectile_StunGrenade : Projectile_Explosive
     {
-        private int ticksToDetonation;
+        /// <summary>
+        /// Overrides Projectile_Explosive.Explode() adding a custom Mote.
+        /// </summary>
 
-        public override void ExposeData()
+        protected override void Explode()
         {
-            base.ExposeData();
-            Scribe_Values.LookValue<int>(ref this.ticksToDetonation, "ticksToDetonation", 0, false);
-        }
+            // Store the custom XML def AS one with the custom <scale> tag
+            LL_ThingDef mote_stunGrenade = LL_ThingDefOf.Mote_StunGrenade as LL_ThingDef;
 
-        public override void Tick()
-        {
-            base.Tick();
-            if (this.ticksToDetonation > 0)
-            {
-                this.ticksToDetonation--;
-                if (this.ticksToDetonation <= 0)
-                {
-                    this.Explode();
-                }
-            }
-        }
+            // Save map and (Unity) position before base method destroys the Projectile.
+            var map = Map;
+            Vector3 position = ExactPosition;
 
-        protected override void Impact(Thing hitThing)
-        {
-            if (this.def.projectile.explosionDelay == 0)
-            {
-                this.Explode();
-                return;
-            }
-            this.landed = true;
-            this.ticksToDetonation = this.def.projectile.explosionDelay;
-        }
+            // Execute DoExplosion and Destroy from base
+            base.Explode();
 
-        protected virtual void Explode()
-        {
-            this.Destroy(DestroyMode.Vanish);
-            ThingDef preExplosionSpawnThingDef = this.def.projectile.preExplosionSpawnThingDef;
-            GenExplosion.DoExplosion(base.Position, this.def.projectile.explosionRadius, this.def.projectile.damageDef, this.launcher, this.def.projectile.soundExplode, this.def, this.equipmentDef, this.def.projectile.postExplosionSpawnThingDef, this.def.projectile.explosionSpawnChance, false, preExplosionSpawnThingDef, this.def.projectile.explosionSpawnChance);
-            MoteThrower.ThrowLightningGlow(base.Position.ToVector3Shifted(), 10F);
+            // Generate the custom Mote effect
+            MoteMaker.MakeStaticMote(position, map, mote_stunGrenade, mote_stunGrenade.scale);
         }
     }
 }
